@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <a href="" target="_blank">Scary link</a>
+        <script>
+            (async () => {
+                const a = document.querySelector("a")
+                const list = await (await fetch("https://api.aredl.net/api/aredl/levels")).json()
+                let level = list[Math.round(Math.random() * list.length)]
+                a.href = `https://www.${level.name.replaceAll(" ", "").split("(")[0]}.com`
+                a.addEventListener("click", () => {
+                    let level = list[Math.round(Math.random() * list.length)]
+                    a.href = `https://www.${level.name.replaceAll(" ", "").split("(")[0]}.com`
+                })
+            })()
+        </script>
+    </body>
+</html>
