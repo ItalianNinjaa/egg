@@ -24,15 +24,20 @@
             max-width: 200%;
             max-height: 200%;
         }
+
+        .fallback {
+            color: #fff;
+            text-align: center;
+        }
         
     </style>
 </head>
 <body>
     <h1>welcome to egg</h1>
-    <br>
     <video controls>
         <source src="egg.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        <source src="egg.webm" type="video/webm">
+        <p class="fallback">Your browser does not support HTML5 video. Please <a href="egg.mp4" download>download the video</a> to watch it.</p>
     </video>
 </body>
 </html>
